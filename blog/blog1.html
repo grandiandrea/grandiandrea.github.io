@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <title>Andrea Grandi - blog</title>
+</head>
+
+<body>
+    <header>
+        <h1>Andrea Grandi</h1>
+        <aside><a href="../blog/blog-list.html">Blog</a></aside>
+        <aside><a href="../index.html">Home</a></aside>
+    </header>
+    
+    <h2>How audio programming taught me about the importance of good software design</h2>
+    <p>
+
+    Last year I had the chance to work on a piece of software as a final project in my bachelor's degree. It's an android app, written in good old Java, that turns your phone into a highly customizable musical instrument controlled with 4 fingers. It offered various settings and controls to alter the characteristics of the produced sound.
+    An interesting project, plagued by the terrible performance of a synth written in a java library called jsyn.
+    My work consisted mainly of replacing that with a faster c++ and AAaudio based synth.
+    Not an easy task, especially for somebody who's not necessarily mathematically inclined. But the biggest issue I had to overcome was not the theory behind PWM, filters, etc. It was the design.
+    </p>
+
+    <p>
+    When I started, it wasn't very clear to me how I would put everything together. I just started coding it without thinking too much about it. I had never worked on something with so much backend logic before (my professional work was limited to web development and my academic work was limited to less complex projects), so I think it was an inevitable mistake.
+    So, as everybody probably does at first, I started from the top. I got my input from the user and I tried to do something with it.
+    I attached a key-to-frequency converter and then plugged it into a sin function. Easy, right? It felt really good to press those buttons and hear sounds coming out of the phone.
+    Then came my first mistake. Instead of scrapping everything and thinking about my design, I started adding component after component to my basic sin synth.
+    Now, there is nothing fundamentally wrong with a top-down approach (it's a matter of personal choice), but you still have to have a somewhat holistic idea of what you are going to do. Regarding this particular application, it would probably have been better to start from the bottom and work our way up. Having a good set of well working, basic components that can be reused in different parts of the code is paramount when developing a high-performance audio application. I didn't have that. As I said, I was building up my features from the input to the sound.
+
+    </p>
+
+    <p>
+    
+    At some point, I managed to create a somewhat functioning version of my synth but it was both un-maintainable and slow.
+    After having a talk with my professor about it, we decided to redesign it.
+    Starting from the bottom, I created a set of reusable, high-performance, classes.
+    These included:
+    <ul>
+    <li> An oscillator </li>
+    <li> A simple mix class that could take N signals as input </li>
+    <li> A signal smoothing filter </li>
+    </ul>
+    All of them were subclasses of a generic SampleProvider interface, meaning that I could use any of them interchangeably to create my various synth features. Neat!
+    I was also careful to accept this generic  SampleProvider as input in the more concrete abstractions that I created from my primitives. This meant, for example, that a PWM oscillator could take any signal and use it to alter the duty cycle (same for the frequency), including a mix class!
+    And that is exactly what I did. Every set of controls was directed into these mix class instances that would be used to control the basic parameters of each of my components. For each buffer, the samples were pulled from each signal, and everything fit together effortlessly.
+    </p>
+
+    <p>
+    
+    The main takeaway was that this second approach was not only easier, better performing and faster to implement. It was also so so much more enjoyable. Nobody likes writing bad code. So take some time. Think about your design and have fun writing a well thought-out piece of software.
+    </p>
+
+</body>
+</html>
