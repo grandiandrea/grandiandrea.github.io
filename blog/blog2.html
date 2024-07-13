@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style.css">
+    <title>Andrea Grandi - blog</title>
+</head>
+
+<body>
+    <header>
+        <h1>Andrea Grandi</h1>
+        <aside><a href="../blog/blog-list.html">Blog</a></aside>
+        <aside><a href="../index.html">Home</a></aside>
+    </header>
+    
+    <h2>From audio to game development</h2>
+    <h4>2023-01-15</h4>
+    <p>
+    I've recently taken an interest in game development and have found that in many ways it's similar to real-time audio development. In this article, I want to explore the similarities between the two fields.
+    </p>
+    <h3>	
+    Context and Background
+    </h3>
+
+    <p>
+    To give a bit of context, I have a limited but informed experience in audio programming—it's something I enjoy as a hobby rather than a profession. On the other hand, my experience in game development could be considered that of an absolute beginner. Recently, the idea came up among friends to develop a tower defense game, so I decided to learn a relatively new game engine called Godot.
+    </p>    
+
+    <h3>
+    Discovering Godot
+    </h3>
+    <p>
+    Godot is a powerful and versatile game engine that is surprisingly complete for its relatively recent entry into the market. It offers a plethora of UI features that simplify the creation of the more graphical aspects of a game, such as maps, characters, animations, and paths. These UI features are often linked to convenient classes that include functions called during the game loop, allowing you to control in-game events through code. Neat!
+    </p>
+
+    <h3>
+    Drawing Parallels with Audio Development
+    </h3>
+    <p>
+    If you are at all familiar with audio programming, you might know of a framework called JUCE. JUCE is to audio programming what Godot is to game development. It provides a UI for assembling your audio software—whether it’s a VST plugin or a standalone application—and includes many handy classes with functions that are called during the software loop, enabling you to interact with the audio buffer.
+    </p>
+    <h3>    
+    Similarities in Structure
+    </h3>  
+    <p>
+    One of the most striking similarities between game development in Godot and audio development in JUCE is the concept of the main loop. In game development, the game loop continuously updates the game state and renders the scene, ensuring smooth gameplay. Similarly, in audio development, the audio loop processes audio buffers in real-time, maintaining continuous sound output.
+    </p>
+    <p>
+    Both environments rely heavily on object-oriented programming. In Godot, you create scenes and nodes, each with its own properties and methods. In JUCE, you design components and audio processors, each encapsulating specific functionality. This modular approach allows for more manageable and scalable projects in both fields.
+    </p>    
+    <h3>
+    UI and Interaction
+    </h3>
+    <p>
+    Another parallel is the use of intuitive UI design to streamline the development process. Godot’s editor allows you to drag and drop elements, set properties, and connect signals visually. JUCE offers a similar experience with its Projucer tool, enabling you to design interfaces and manage project settings through a graphical interface.
+    </p>
+    <p>
+    Both Godot and JUCE also provide extensive libraries of pre-built functions and classes. These libraries handle common tasks, such as collision detection in games or audio playback in applications, allowing developers to focus on the unique aspects of their projects.
+    </p>
+    <h3>
+    Handling Real-Time Data
+    </h3>
+    <p>
+    Real-time processing is a critical aspect of both game and audio development. In games, real-time rendering and physics calculations are essential for creating an immersive experience. In audio development, real-time audio processing ensures low latency and high performance, crucial for professional audio applications.
+    </p>
+    <p>
+    Both Godot and JUCE are designed to handle real-time data efficiently. Godot's scene tree architecture ensures that updates and rendering are performed in a structured manner, while JUCE’s audio processing classes are optimized for low-latency performance, making them ideal for time-sensitive applications.
+    </p>
+    <h3>
+    Conclusion
+    </h3>
+    <p>
+    While game development and real-time audio development may seem like distinct disciplines, they share many underlying principles and practices. Tools like Godot and JUCE demonstrate how powerful, user-friendly frameworks can facilitate creative expression and technical proficiency. As I continue my journey in game development, I am excited to explore these parallels further and leverage my audio programming experience to create engaging and dynamic games.
+    </p>
+</body>
+</html>
